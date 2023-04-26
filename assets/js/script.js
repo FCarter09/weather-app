@@ -30,7 +30,106 @@ var getCurrentWeather = function (cityName) {
 
 }
 
-//getCurrentWeather()
+// fiveDayForecast Function
+var getFiveDayForecast = function (cityName) {
+
+    
+    //5 day weather api
+    var fiveDayWeather = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=607a87148837798f253f19dd664831b9&units=imperial`
+                           
+    //make request to URL
+    fetch(fiveDayWeather).then(function(response){
+        response.json().then(function(data){
+        // console.log(data.list);
+        allTemps = []
+        allHumidity = []
+        allWind = []
+        allDates = []
+        //data.list has 40 weather forecast readings
+        data.list.forEach(function(weatherReading) {
+            //get weather reading for 12 noon each day
+            if(weatherReading.dt_txt.slice(11,) === "12:00:00") {
+                console.log(weatherReading);
+                
+                
+                var fiveDayTemp = weatherReading.main.temp
+                allTemps.push(fiveDayTemp)
+                var fiveDayHumidity = weatherReading.main.humidity
+                allHumidity.push(fiveDayHumidity)
+                var fiveDayWind = weatherReading.wind.speed
+                allWind.push(fiveDayWind)
+                var fiveDayDate = weatherReading.dt_txt.slice(0,10) 
+                allDates.push(fiveDayDate)
+
+            }
+            
+        }) 
+        // after getting weather data from the API call, now put the weather data on the page
+        // remember, the weather data is stored in arrays (ex: allWind). We need to get the data out of the arrays and put it in the right spot on the page
+        // Day One Weather Information
+        var dayOneDate = document.querySelector("#dayOneDate")
+        var dayOneTemp = document.querySelector("#dayOneTemp")
+        var dayOneHumidity = document.querySelector("#dayOneHumidity")
+        var dayOneWind = document.querySelector("#dayOneWind")
+
+        dayOneDate.textContent =  `Date: ${allDates[0]}` 
+        dayOneTemp.textContent = `Temp: ${allTemps[0]}`
+        dayOneHumidity.textContent = `Humidity: ${allHumidity[0]}`
+        dayOneWind.textContent = `Wind: ${allWind[0]}`
+
+        // Day Two Weather Information
+        var dayTwoDate = document.querySelector("#dayTwoDate")
+        var dayTwoTemp = document.querySelector("#dayTwoTemp")
+        var dayTwoHumidity = document.querySelector("#dayTwoHumidity")
+        var dayTwoWind = document.querySelector("#dayTwoWind")
+
+        dayTwoDate.textContent =  `Date: ${allDates[1]}` 
+        dayTwoTemp.textContent = `Temp: ${allTemps[1]}`
+        dayTwoHumidity.textContent = `Humidity: ${allHumidity[1]}`
+        dayTwoWind.textContent = `Wind: ${allWind[1]}`
+
+        // Day Three Weather Information
+
+        var dayThreeDate = document.querySelector("#dayThreeDate")
+        var dayThreeTemp = document.querySelector("#dayThreeTemp")
+        var dayThreeHumidity = document.querySelector("#dayThreeHumidity")
+        var dayThreeWind = document.querySelector("#dayThreeWind")
+
+        dayThreeDate.textContent =  `Date: ${allDates[2]}` 
+        dayThreeTemp.textContent = `Temp: ${allTemps[2]}`
+        dayThreeHumidity.textContent = `Humidity: ${allHumidity[2]}`
+        dayThreeWind.textContent = `Wind: ${allWind[2]}`
+
+        // Day Four Weather Information
+
+        var dayFourDate = document.querySelector("#dayFourDate")
+        var dayFourTemp = document.querySelector("#dayFourTemp")
+        var dayFourHumidity = document.querySelector("#dayFourHumidity")
+        var dayFourWind = document.querySelector("#dayFourWind")
+
+        dayFourDate.textContent =  `Date: ${allDates[3]}` 
+        dayFourTemp.textContent = `Temp: ${allTemps[3]}`
+        dayFourHumidity.textContent = `Humidity: ${allHumidity[3]}`
+        dayFourWind.textContent = `Wind: ${allWind[3]}`
+
+        // Day Five Weather Information
+
+        var dayFiveDate = document.querySelector("#dayFiveDate")
+        var dayFiveTemp = document.querySelector("#dayFiveTemp")
+        var dayFiveHumidity = document.querySelector("#dayFiveHumidity")
+        var dayFiveWind = document.querySelector("#dayFiveWind")
+
+        dayFiveDate.textContent =  `Date: ${allDates[4]}` 
+        dayFiveTemp.textContent = `Temp: ${allTemps[4]}`
+        dayFiveHumidity.textContent = `Humidity: ${allHumidity[4]}`
+        dayFiveWind.textContent = `Wind: ${allWind[4]}`
+    })
+
+    
+        .catch(err => console.error(err));
+    })
+
+}
 
 //create searchHandler function
 var searchHandler = function(event) {
@@ -45,6 +144,8 @@ var searchHandler = function(event) {
 
     if (cityName) {
         getCurrentWeather(cityName);
+        getFiveDayForecast(cityName);
+
         searchInputEl.value = "";
         
         
@@ -63,28 +164,31 @@ searchButtonEl.addEventListener("click", searchHandler);
 
   // displays cities
 var displayCity = function (currentWeatherData, cityName) {
-    console.log(currentWeatherData);
-    // currentWeathrData is in JSON format. This means that it is an object
+    // console.log(currentWeatherData);
+    // currentWeatherData is in JSON format. This means that it is an object
     // extract the things we want from the currentWeatherData and save them in variables to use later
    
     var temp = currentWeatherData.main.temp
-    console.log('current temp', temp)
+    // console.log('current temp', temp)
 
     var humidity = currentWeatherData.main.humidity
-    console.log('current humidity', humidity);
+    // console.log('current humidity', humidity);
     
     var wind = currentWeatherData.wind.speed
-    console.log('windspeed', wind);
+    // console.log('wind speed', wind);
    
    //display weather data for city
-
-   
    cityNameEl.textContent = cityName
    currentTempEl.textContent = temp
    currentHumidityEl.textContent = humidity
    currentWindEl.textContent = wind
    
 
+
+
+}
+
+var displayFiveDayForecast = function(fiveDayWeather, cityName) {
 
 
 }

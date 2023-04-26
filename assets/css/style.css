@@ -93,6 +93,45 @@ header h1 {
    
 }
 
+
+.fiveDayWeatherCardOne{
+    border: 1px solid black;
+    height: 400px;
+    width: 100px;
+}
+
+.fiveDayWeatherCardTwo{
+    border: 1px solid black;
+    height: 400px;
+    width: 100px;
+    margin-left: 100px;
+    margin-top: -400px;
+}
+
+.fiveDayWeatherCardThree{
+    border: 1px solid black;
+    height: 400px;
+    width: 100px;
+    margin-left: 200px;
+    margin-top: -400px;
+}
+
+.fiveDayWeatherCardFour{
+    border: 1px solid black;
+    height: 400px;
+    width: 100px;
+    margin-left: 300px;
+    margin-top: -400px;
+}
+
+.fiveDayWeatherCardFive{
+    border: 1px solid black;
+    height: 400px;
+    width: 100px;
+    margin-left: 400px;
+    margin-top: -400px;
+}
+
 footer {
     background-color: rgb(32, 32, 158);
     margin-top: 250px;
