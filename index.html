@@ -18,102 +18,123 @@
 
 <body>
 
-<div class="card">
-    <h2 class="subtitle">Search for a city:</h2>
-    <form class="card-body" id="search-input" >
-        <input name="city-search" placeholder="Search Weather for City"class="input" id="search-city" type="text" autofocus="true"> 
-    </form>
-    <form class="card body" id="search-button">
-        <button class="button" type="click">Search</button>
-    </form>
-
-</div>
+    <div id="overallHolder">
 
 
-<div class="current-weather-data">
+        <div class="card">
+            <h2 class="subtitle">Search for a city:</h2>
+            <form class="card-body" id="search-input" >
+                <input name="city-search" placeholder="Search Weather for City"class="input" id="search-city" type="text" autofocus="true"> 
+            </form>
+            <form class="card-body" id="search-button">
+                <button class="button" type="click">Search</button>
+            </form>
 
-    <!-- city weather data is added here -->
-    <h1 id="cityName"></h1>
+            <h2>Recent Searches</h2>
+            <ul class="city-list">
+                <!--List of cities will be created by javascript-->
+            </ul>
 
-    <span class="temperature">Temp:</span> 
-        <p id="currentTemp"></p> 
-    
-
-    <span class="humidity">Humidity:</span>
-    <p id="currentHumidity"></p>
-
-    <span class="wind">Wind:</span>
-    <p id="currentWind"></p>
- </div>
-
-<div class="border-after-card"></div>
-
-<div id="fiveDayWeatherOne">
-    <div class='fiveDayWeatherCardOne' id="dayOne">
-        <p id="dayOneDate"></p>
-
-        <p id="dayOneTemp"></p>
-
-        <p id="dayOneHumidity"></p>
-
-        <p id="dayOneWind"></p>
-    </div> 
-      
-</div>
-
-<div id="fiveDayWeatherTwo">
-    <div class='fiveDayWeatherCardTwo' id="dayTwo">
-        <p id="dayTwoDate"></p>
-
-        <p id="dayTwoTemp"></p>
-
-        <p id="dayTwoHumidity"></p>
-
-        <p id="dayTwoWind"></p>
-    </div> 
-      
-</div>
-
-<div id="fiveDayWeatherThree">
-    <div class='fiveDayWeatherCardThree' id="dayThree">
-        <p id="dayThreeDate"></p>
-
-        <p id="dayThreeTemp"></p>
-
-        <p id="dayThreeHumidity"></p>
-
-        <p id="dayThreeWind"></p>
-    </div> 
-      
-</div>
-
-<div id="fiveDayWeatherFour">
-    <div class='fiveDayWeatherCardFour' id="dayFour">
-        <p id="dayFourDate"></p>
-
-        <p id="dayFourTemp"></p>
-
-        <p id="dayFourHumidity"></p>
-
-        <p id="dayFourWind"></p>
-    </div> 
-      
-</div>
-
-<div id="fiveDayWeatherFive">
-    <div class='fiveDayWeatherCardFive' id="dayFive">
-        <p id="dayFiveDate"></p>
-
-        <p id="dayFiveTemp"></p>
-
-        <p id="dayFiveHumidity"></p>
-
-        <p id="dayFiveWind"></p>
-    </div> 
-      
-</div>
+        </div>
 
 
+        <div class="current-weather-data">
+
+            <div id="weatherToday">
+                <!-- city weather data is added here -->
+                <h1 id="cityName"></h1>
+
+                <span class="temperature">Temp:</span> 
+                    <p id="currentTemp"></p> 
+                
+
+                <span class="humidity">Humidity:</span>
+                <p id="currentHumidity"></p>
+
+                <span class="wind">Wind:</span>
+                <p id="currentWind"></p>
+            </div>
+        
+            <div id="weatherFiveDay">
+
+         
+                <div class="border-after-searchBar"></div>
+                <div class="border-after-current-weather"></div>
+                <h2 class="fiveDayTitle">5-Day Forecast</h2>
+
+                <div id="weatherBars">
+
+               
+                    <div id="fiveDayWeatherOne">
+                        <div class='fiveDayWeatherCardOne' id="dayOne">
+                            <p id="dayOneDate"></p>
+
+                            <p id="dayOneTemp"></p>
+
+                            <p id="dayOneHumidity"></p>
+
+                            <p id="dayOneWind"></p>
+                        </div> 
+                        
+                    </div>
+
+                    <div id="fiveDayWeatherTwo">
+                        <div class='fiveDayWeatherCardTwo' id="dayTwo">
+                            <p id="dayTwoDate"></p>
+
+                            <p id="dayTwoTemp"></p>
+
+                            <p id="dayTwoHumidity"></p>
+
+                            <p id="dayTwoWind"></p>
+                        </div> 
+                        
+                    </div>
+
+                    <div id="fiveDayWeatherThree">
+                        <div class='fiveDayWeatherCardThree' id="dayThree">
+                            <p id="dayThreeDate"></p>
+
+                            <p id="dayThreeTemp"></p>
+
+                            <p id="dayThreeHumidity"></p>
+
+                            <p id="dayThreeWind"></p>
+                        </div> 
+                        
+                    </div>
+
+                    <div id="fiveDayWeatherFour">
+                        <div class='fiveDayWeatherCardFour' id="dayFour">
+                            <p id="dayFourDate"></p>
+
+                            <p id="dayFourTemp"></p>
+
+                            <p id="dayFourHumidity"></p>
+
+                            <p id="dayFourWind"></p>
+                        </div> 
+                        
+                    </div>
+
+                    <div id="fiveDayWeatherFive">
+                        <div class='fiveDayWeatherCardFive' id="dayFive">
+                            <p id="dayFiveDate"></p>
+
+                            <p id="dayFiveTemp"></p>
+
+                            <p id="dayFiveHumidity"></p>
+
+                            <p id="dayFiveWind"></p>
+                        </div> 
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script src="./assets/js/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

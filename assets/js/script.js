@@ -1,12 +1,41 @@
+// TO DO ITEMS (From Erich)
+// 1 - load the 'recent searches' 'when the page first loads
+// 2 - make each recent search item a button. You will do this in the section where we create the DOM elements
+// 3 - when you click a recent search, you should find the weather for that city
 
 
 var searchInputEl = document.querySelector(".input")
 var searchButtonEl = document.querySelector(".button")
-
+var savedCityButtonEl = document.querySelector(".buttons")
 var cityNameEl = document.querySelector("#cityName")
 var currentTempEl = document.querySelector('#currentTemp')
 var currentHumidityEl = document.querySelector("#currentHumidity")
 var currentWindEl = document.querySelector("#currentWind")
+
+
+//loads saved cities to page
+function onPageLoad() {
+    var savedCities = JSON.parse(localStorage.getItem("recentSearches") || "[]");
+    console.log(savedCities);
+
+    let cityList = document.querySelector('.city-list')
+
+    for (var i = 0; i < savedCities.length; i++) {
+    console.log(savedCities);
+
+       let cityListItem = document.createElement('li')
+        var button = document.createElement('button')
+        button.textContent = savedCities[i]
+        button.classList.add('buttons')
+        cityListItem.appendChild(button)
+        cityListItem.classList.add('city-list-item')
+        cityList.appendChild(cityListItem)
+    }
+
+}
+
+ // call onPageLoad function
+ onPageLoad()
 
 //current weather function
 var getCurrentWeather = function (cityName) {
@@ -72,7 +101,7 @@ var getFiveDayForecast = function (cityName) {
         var dayOneHumidity = document.querySelector("#dayOneHumidity")
         var dayOneWind = document.querySelector("#dayOneWind")
 
-        dayOneDate.textContent =  `Date: ${allDates[0]}` 
+        dayOneDate.textContent =  `${allDates[0]}` 
         dayOneTemp.textContent = `Temp: ${allTemps[0]}`
         dayOneHumidity.textContent = `Humidity: ${allHumidity[0]}`
         dayOneWind.textContent = `Wind: ${allWind[0]}`
@@ -83,7 +112,7 @@ var getFiveDayForecast = function (cityName) {
         var dayTwoHumidity = document.querySelector("#dayTwoHumidity")
         var dayTwoWind = document.querySelector("#dayTwoWind")
 
-        dayTwoDate.textContent =  `Date: ${allDates[1]}` 
+        dayTwoDate.textContent =   `${allDates[1]}`
         dayTwoTemp.textContent = `Temp: ${allTemps[1]}`
         dayTwoHumidity.textContent = `Humidity: ${allHumidity[1]}`
         dayTwoWind.textContent = `Wind: ${allWind[1]}`
@@ -95,7 +124,7 @@ var getFiveDayForecast = function (cityName) {
         var dayThreeHumidity = document.querySelector("#dayThreeHumidity")
         var dayThreeWind = document.querySelector("#dayThreeWind")
 
-        dayThreeDate.textContent =  `Date: ${allDates[2]}` 
+        dayThreeDate.textContent =   `${allDates[2]}`
         dayThreeTemp.textContent = `Temp: ${allTemps[2]}`
         dayThreeHumidity.textContent = `Humidity: ${allHumidity[2]}`
         dayThreeWind.textContent = `Wind: ${allWind[2]}`
@@ -107,7 +136,7 @@ var getFiveDayForecast = function (cityName) {
         var dayFourHumidity = document.querySelector("#dayFourHumidity")
         var dayFourWind = document.querySelector("#dayFourWind")
 
-        dayFourDate.textContent =  `Date: ${allDates[3]}` 
+        dayFourDate.textContent =  ` ${allDates[3]}` 
         dayFourTemp.textContent = `Temp: ${allTemps[3]}`
         dayFourHumidity.textContent = `Humidity: ${allHumidity[3]}`
         dayFourWind.textContent = `Wind: ${allWind[3]}`
@@ -119,7 +148,7 @@ var getFiveDayForecast = function (cityName) {
         var dayFiveHumidity = document.querySelector("#dayFiveHumidity")
         var dayFiveWind = document.querySelector("#dayFiveWind")
 
-        dayFiveDate.textContent =  `Date: ${allDates[4]}` 
+        dayFiveDate.textContent =  `${allDates[4]}` 
         dayFiveTemp.textContent = `Temp: ${allTemps[4]}`
         dayFiveHumidity.textContent = `Humidity: ${allHumidity[4]}`
         dayFiveWind.textContent = `Wind: ${allWind[4]}`
@@ -138,7 +167,7 @@ var searchHandler = function(event) {
     
     
     
-    //get value form input element
+    //get value from input element
     var cityName = searchInputEl.value.trim();
     
 
@@ -146,6 +175,8 @@ var searchHandler = function(event) {
         getCurrentWeather(cityName);
         getFiveDayForecast(cityName);
 
+        //set cityName into local storage
+        setLocalStorage(cityName)
         searchInputEl.value = "";
         
         
@@ -157,10 +188,50 @@ var searchHandler = function(event) {
 
 }
 
-
-
 //search button to display city 
 searchButtonEl.addEventListener("click", searchHandler);
+
+var setLocalStorage = function(city) {
+
+
+    //checks local storage
+    let recentSearches = JSON.parse(localStorage.getItem("recentSearches") || "[]");
+    
+    //we will limit recent searches to latest five searches
+    recentSearches = recentSearches.slice(0,4)
+
+    //unshift puts last searched city into front of array
+    recentSearches.unshift(city)
+    console.log(recentSearches);
+
+    //make dom element for list of cities
+    var cityList = document.querySelector('.city-list')
+
+    //want to delete anything inside of city-list
+    cityList.replaceChildren()
+
+
+    //make list item element for each city
+    // loop over the cities in recent searches
+    for (let i = 0; i < recentSearches.length; i++) {
+        var cityListItem = document.createElement('li')
+        var button = document.createElement('button')
+        button.textContent = recentSearches[i]
+        button.classList.add('buttons')
+        cityListItem.appendChild(button)
+        cityListItem.classList.add('city-list-item')
+        cityList.appendChild(cityListItem)
+
+    }
+   
+
+
+
+    //sets item to local storage
+    localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
+}
+
+
 
   // displays cities
 var displayCity = function (currentWeatherData, cityName) {
@@ -188,8 +259,32 @@ var displayCity = function (currentWeatherData, cityName) {
 
 }
 
-var displayFiveDayForecast = function(fiveDayWeather, cityName) {
+var getCityWeather = function() {
+
+    
+    
+    // //get value form input element
+    // var cityName = savedCityButtonEl.value.trim();
+    // console.log(cityName);
+    
+
+    // // if (cityName) {
+    // //     getCurrentWeather(cityName);
+    // //     getFiveDayForecast(cityName);
+
+    // //     //set cityName into local storage
+    // //     setLocalStorage(cityName)
+    // //     // searchInputEl.value = "";
+        
+        
+    // // }
+    // // else {
+        alert("Error");
+    
 
 
 }
+
+savedCityButtonEl.addEventListener("click", getCityWeather) 
+
 
