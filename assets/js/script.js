@@ -1,12 +1,8 @@
-// TO DO ITEMS (From Erich)
-// 1 - load the 'recent searches' 'when the page first loads
-// 2 - make each recent search item a button. You will do this in the section where we create the DOM elements
-// 3 - when you click a recent search, you should find the weather for that city
-
-
+s
 var searchInputEl = document.querySelector(".input")
 var searchButtonEl = document.querySelector(".button")
-var savedCityButtonEl = document.querySelector(".buttons")
+// var savedCityButtonEl = document.querySelector(".buttons")
+// console.log(savedCityButtonEl, 'is it working');
 var cityNameEl = document.querySelector("#cityName")
 var currentTempEl = document.querySelector('#currentTemp')
 var currentHumidityEl = document.querySelector("#currentHumidity")
@@ -27,10 +23,36 @@ function onPageLoad() {
         var button = document.createElement('button')
         button.textContent = savedCities[i]
         button.classList.add('buttons')
+        button.id = Math.floor(Math.random() * 100)
+        button.setAttribute('id', button.id)
         cityListItem.appendChild(button)
         cityListItem.classList.add('city-list-item')
         cityList.appendChild(cityListItem)
     }
+
+   // eventListeners for recent search buttons
+   var savedCityButtons = document.querySelectorAll('.buttons')
+   console.log(savedCityButtons);
+
+   for (let i = 0; i < savedCityButtons.length; i++) {
+       // add eventListener for each button
+       savedCityButtons[i].addEventListener('click', () => {
+           var savedCityName = savedCityButtons[i].textContent
+
+           getCurrentWeather(savedCityName);
+           getFiveDayForecast(savedCityName);
+
+           //set cityName into local storage
+           setLocalStorage(savedCityName)
+           searchInputEl.value = "";
+
+
+
+
+
+           })
+
+       }
 
 }
 
@@ -184,7 +206,8 @@ var searchHandler = function(event) {
     else {
         alert("Please enter a city name");
     }
-
+    //can an else if statement be used?
+    
 
 }
 
@@ -193,16 +216,17 @@ searchButtonEl.addEventListener("click", searchHandler);
 
 var setLocalStorage = function(city) {
 
-
     //checks local storage
     let recentSearches = JSON.parse(localStorage.getItem("recentSearches") || "[]");
     
     //we will limit recent searches to latest five searches
     recentSearches = recentSearches.slice(0,4)
-
+    
     //unshift puts last searched city into front of array
     recentSearches.unshift(city)
-    console.log(recentSearches);
+
+    // check to see if there are duplicate city names in the local, if so delete duplicates
+    recentSearches = [ ...new Set(recentSearches) ];
 
     //make dom element for list of cities
     var cityList = document.querySelector('.city-list')
@@ -218,11 +242,37 @@ var setLocalStorage = function(city) {
         var button = document.createElement('button')
         button.textContent = recentSearches[i]
         button.classList.add('buttons')
+        button.id = Math.floor(Math.random() * 100)
+        button.setAttribute('id', button.id)
         cityListItem.appendChild(button)
         cityListItem.classList.add('city-list-item')
         cityList.appendChild(cityListItem)
 
     }
+
+    // eventListeners for recent search buttons
+    var savedCityButtons = document.querySelectorAll('.buttons')
+    console.log(savedCityButtons);
+
+    for (let i = 0; i < savedCityButtons.length; i++) {
+        // add eventListener for each button
+        savedCityButtons[i].addEventListener('click', () => {
+            var savedCityName = savedCityButtons[i].textContent
+
+            getCurrentWeather(savedCityName);
+            getFiveDayForecast(savedCityName);
+
+            //set cityName into local storage
+            setLocalStorage(savedCityName)
+            searchInputEl.value = "";
+
+
+
+
+
+            })
+
+        }
    
 
 
@@ -259,32 +309,9 @@ var displayCity = function (currentWeatherData, cityName) {
 
 }
 
-var getCityWeather = function() {
-
-    
-    
-    // //get value form input element
-    // var cityName = savedCityButtonEl.value.trim();
-    // console.log(cityName);
-    
-
-    // // if (cityName) {
-    // //     getCurrentWeather(cityName);
-    // //     getFiveDayForecast(cityName);
-
-    // //     //set cityName into local storage
-    // //     setLocalStorage(cityName)
-    // //     // searchInputEl.value = "";
-        
-        
-    // // }
-    // // else {
-        alert("Error");
-    
 
 
-}
 
-savedCityButtonEl.addEventListener("click", getCityWeather) 
+
 
 
