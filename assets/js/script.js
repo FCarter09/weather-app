@@ -1,8 +1,6 @@
 s
 var searchInputEl = document.querySelector(".input")
 var searchButtonEl = document.querySelector(".button")
-// var savedCityButtonEl = document.querySelector(".buttons")
-// console.log(savedCityButtonEl, 'is it working');
 var cityNameEl = document.querySelector("#cityName")
 var currentTempEl = document.querySelector('#currentTemp')
 var currentHumidityEl = document.querySelector("#currentHumidity")
