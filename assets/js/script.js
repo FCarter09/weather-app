@@ -1,4 +1,4 @@
-s
+
 var searchInputEl = document.querySelector(".input")
 var searchButtonEl = document.querySelector(".button")
 var cityNameEl = document.querySelector("#cityName")
@@ -15,7 +15,7 @@ function onPageLoad() {
     let cityList = document.querySelector('.city-list')
 
     for (var i = 0; i < savedCities.length; i++) {
-    console.log(savedCities);
+    console.log("saved cities:", savedCities);
 
        let cityListItem = document.createElement('li')
         var button = document.createElement('button')
