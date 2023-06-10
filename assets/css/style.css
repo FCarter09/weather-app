@@ -84,11 +84,11 @@ header h1 {
 }
 
 .button {
-    height: 50px;
+    height: 35px;
     width: 100%;
     color: white;
-    font-size: 25px;
-    background-color: rgb(15, 132, 172);
+    font-size: 20px;
+    background-color: rgb(41, 41, 156);
     border-radius: 10px;
     text-align: center;
     padding-top: 5px;
@@ -124,6 +124,18 @@ header h1 {
     color: rgb(41, 41, 156);
     font-weight: bold;
 
+}
+
+#currentTemp,
+#currentHumidity,
+#currentWind {
+    font-weight: bold;
+}
+
+#weatherToday {
+    border: darkblue 1px solid
+    
+    
 }
 
 
