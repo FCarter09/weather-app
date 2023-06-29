@@ -308,25 +308,16 @@ footer h4 {
   }
 
   @media screen and (max-width: 635px) {
-    #weatherFiveDay  {
+    #weatherBars  {
      
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+    
     
     }
   }
 
-  /* @media screen and (max-width: 635px) {
-    .border-after-current-weather  {
-     
   
-      width: 100%
-      
-      
-    
-    }
-  } */
 
 
 
