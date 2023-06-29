@@ -13,6 +13,7 @@ header {
     background-color: rgb(32, 32, 158);
     margin-top: 10px;
     margin-bottom: 25px;
+    width: 100%
 }
 
 header h1 {
@@ -31,14 +32,18 @@ header h1 {
 }
 
 
-.border-after-current-weather {
+/* .border-after-current-weather {
     border-bottom: 2px solid rgb(26, 26, 133);
     margin-top: 50px;
     margin-bottom: 10px;
-    width: 1000px;
+    width: 1000%;
     display: inline-block;
    
     
+} */
+
+.border-after-current-weather {
+    border-top: 2px solid darkblue;
 }
 
 
@@ -105,15 +110,19 @@ header h1 {
     width: 100%;
     color: white;
     font-size: 20px;
+    font-weight: bold;
     background-color: rgb(54, 54, 133);
     opacity: 0.9;
     border-radius: 10px;
     text-align: center;
+    margin-left: -100;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 25px;
+    position: relative;
+    left: -40px;
     cursor: pointer
     
 }
@@ -133,7 +142,8 @@ header h1 {
 }
 
 #weatherToday {
-    border: darkblue 1px solid
+    border: darkblue 1px solid;
+    margin-bottom: 30px
     
     
 }
@@ -161,6 +171,7 @@ header h1 {
     padding: auto;
     justify-content: space-around;
 }
+
 
 .fiveDayWeatherCardOne{
     border: 1px solid black;
@@ -193,7 +204,6 @@ header h1 {
 .fiveDayWeatherCardFive{
     border: 1px solid black;
     width: 100px;
-    
     padding-left: 5px;
     background-color: rgb(54, 54, 133);
 }
@@ -249,6 +259,74 @@ footer h4 {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+
+@media screen and (max-width: 866px) {
+    .buttons  {
+     
+      font-size: 15px; 
+      font-weight: bold
+    
+    }
+  }
+
+  @media screen and (max-width: 737px) {
+    .buttons  {
+  
+      font-size: 12px;
+      font-weight: bold
+
+    
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    .buttons  {
+  
+      font-size: 10px;
+      font-weight: bold 
+    
+    }
+  }
+
+  @media screen and (max-width: 521px) {
+    .buttons  {
+
+      font-size: 6px;
+      font-weight: bold
+    
+    }
+  }
+
+  @media screen and (max-width: 430px) {
+    .buttons  {
+
+      font-size: 4px;
+      font-weight: bold
+    
+    }
+  }
+
+  @media screen and (max-width: 635px) {
+    #weatherFiveDay  {
+     
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    
+    }
+  }
+
+  /* @media screen and (max-width: 635px) {
+    .border-after-current-weather  {
+     
+  
+      width: 100%
+      
+      
+    
+    }
+  } */
 
 
 

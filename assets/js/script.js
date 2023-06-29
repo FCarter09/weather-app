@@ -44,18 +44,22 @@ function onPageLoad() {
            setLocalStorage(savedCityName)
            searchInputEl.value = "";
 
-
-
-
-
            })
 
        }
 
 }
 
+
+
+
+
  // call onPageLoad function
  onPageLoad()
+
+
+
+
 
 //current weather function
 var getCurrentWeather = function (cityName) {
@@ -78,6 +82,37 @@ var getCurrentWeather = function (cityName) {
     })
 
 }
+
+
+
+
+
+ // display city with current weather
+ var displayCity = function (currentWeatherData, cityName) {
+    // console.log(currentWeatherData);
+    // currentWeatherData is in JSON format. This means that it is an object
+    // extract the things we want from the currentWeatherData and save them in variables to use later
+   
+    var temp = currentWeatherData.main.temp
+    // console.log('current temp', temp)
+
+    var humidity = currentWeatherData.main.humidity
+    // console.log('current humidity', humidity);
+    
+    var wind = currentWeatherData.wind.speed
+    // console.log('wind speed', wind);
+   
+   //display weather data for city
+   cityNameEl.textContent = cityName
+   currentTempEl.textContent = temp
+   currentHumidityEl.textContent = humidity
+   currentWindEl.textContent = wind
+
+}
+
+
+
+
 
 // fiveDayForecast Function
 var getFiveDayForecast = function (cityName) {
@@ -113,7 +148,7 @@ var getFiveDayForecast = function (cityName) {
             }
             
         }) 
-        // after getting weather data from the API call, now put the weather data on the page
+        // after getting weather data from the API call, now put the weather data on the page with the 5 day forecast
         // remember, the weather data is stored in arrays (ex: allWind). We need to get the data out of the arrays and put it in the right spot on the page
         // Day One Weather Information
         var dayOneDate = document.querySelector("#dayOneDate")
@@ -180,6 +215,10 @@ var getFiveDayForecast = function (cityName) {
 
 }
 
+
+
+
+
 //create searchHandler function
 var searchHandler = function(event) {
 
@@ -203,15 +242,21 @@ var searchHandler = function(event) {
     }
     else {
         alert("Please enter a city name");
-    }
-    //can an else if statement be used?
-    
+    }   
 
 }
+
+
+
+
 
 //search button to display city 
 searchButtonEl.addEventListener("click", searchHandler);
 
+
+
+
+// Display searched cities as list of buttons
 var setLocalStorage = function(city) {
 
     //checks local storage
@@ -264,48 +309,17 @@ var setLocalStorage = function(city) {
             setLocalStorage(savedCityName)
             searchInputEl.value = "";
 
-
-
-
-
             })
 
         }
    
-
-
-
     //sets item to local storage
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
 }
 
 
 
-  // displays cities
-var displayCity = function (currentWeatherData, cityName) {
-    // console.log(currentWeatherData);
-    // currentWeatherData is in JSON format. This means that it is an object
-    // extract the things we want from the currentWeatherData and save them in variables to use later
-   
-    var temp = currentWeatherData.main.temp
-    // console.log('current temp', temp)
-
-    var humidity = currentWeatherData.main.humidity
-    // console.log('current humidity', humidity);
-    
-    var wind = currentWeatherData.wind.speed
-    // console.log('wind speed', wind);
-   
-   //display weather data for city
-   cityNameEl.textContent = cityName
-   currentTempEl.textContent = temp
-   currentHumidityEl.textContent = humidity
-   currentWindEl.textContent = wind
-   
-
-
-
-}
+ 
 
 
 
