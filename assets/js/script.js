@@ -104,9 +104,9 @@ var getCurrentWeather = function (cityName) {
    
    //display weather data for city
    cityNameEl.textContent = cityName
-   currentTempEl.textContent = temp
-   currentHumidityEl.textContent = humidity
-   currentWindEl.textContent = wind
+   currentTempEl.textContent = temp +'°'
+   currentHumidityEl.textContent = humidity +'%'
+   currentWindEl.textContent = wind + ' mph '
 
 }
 
@@ -157,9 +157,9 @@ var getFiveDayForecast = function (cityName) {
         var dayOneWind = document.querySelector("#dayOneWind")
 
         dayOneDate.textContent =  `${allDates[0]}` 
-        dayOneTemp.textContent = `Temp: ${allTemps[0]}`
-        dayOneHumidity.textContent = `Humidity: ${allHumidity[0]}`
-        dayOneWind.textContent = `Wind: ${allWind[0]}`
+        dayOneTemp.textContent = `Temp: ${allTemps[0]}°`
+        dayOneHumidity.textContent = `Humidity: ${allHumidity[0]}%`
+        dayOneWind.textContent = `Wind: ${allWind[0]} mph`
 
         // Day Two Weather Information
         var dayTwoDate = document.querySelector("#dayTwoDate")
@@ -168,9 +168,9 @@ var getFiveDayForecast = function (cityName) {
         var dayTwoWind = document.querySelector("#dayTwoWind")
 
         dayTwoDate.textContent =   `${allDates[1]}`
-        dayTwoTemp.textContent = `Temp: ${allTemps[1]}`
-        dayTwoHumidity.textContent = `Humidity: ${allHumidity[1]}`
-        dayTwoWind.textContent = `Wind: ${allWind[1]}`
+        dayTwoTemp.textContent = `Temp: ${allTemps[1]}°`
+        dayTwoHumidity.textContent = `Humidity: ${allHumidity[1]}%`
+        dayTwoWind.textContent = `Wind: ${allWind[1]} mph`
 
         // Day Three Weather Information
 
@@ -180,9 +180,9 @@ var getFiveDayForecast = function (cityName) {
         var dayThreeWind = document.querySelector("#dayThreeWind")
 
         dayThreeDate.textContent =   `${allDates[2]}`
-        dayThreeTemp.textContent = `Temp: ${allTemps[2]}`
-        dayThreeHumidity.textContent = `Humidity: ${allHumidity[2]}`
-        dayThreeWind.textContent = `Wind: ${allWind[2]}`
+        dayThreeTemp.textContent = `Temp: ${allTemps[2]}°`
+        dayThreeHumidity.textContent = `Humidity: ${allHumidity[2]}%`
+        dayThreeWind.textContent = `Wind: ${allWind[2]} mph`
 
         // Day Four Weather Information
 
@@ -192,9 +192,9 @@ var getFiveDayForecast = function (cityName) {
         var dayFourWind = document.querySelector("#dayFourWind")
 
         dayFourDate.textContent =  ` ${allDates[3]}` 
-        dayFourTemp.textContent = `Temp: ${allTemps[3]}`
-        dayFourHumidity.textContent = `Humidity: ${allHumidity[3]}`
-        dayFourWind.textContent = `Wind: ${allWind[3]}`
+        dayFourTemp.textContent = `Temp: ${allTemps[3]}°`
+        dayFourHumidity.textContent = `Humidity: ${allHumidity[3]}%`
+        dayFourWind.textContent = `Wind: ${allWind[3]} mph`
 
         // Day Five Weather Information
 
@@ -204,9 +204,9 @@ var getFiveDayForecast = function (cityName) {
         var dayFiveWind = document.querySelector("#dayFiveWind")
 
         dayFiveDate.textContent =  `${allDates[4]}` 
-        dayFiveTemp.textContent = `Temp: ${allTemps[4]}`
-        dayFiveHumidity.textContent = `Humidity: ${allHumidity[4]}`
-        dayFiveWind.textContent = `Wind: ${allWind[4]}`
+        dayFiveTemp.textContent = `Temp: ${allTemps[4]}°`
+        dayFiveHumidity.textContent = `Humidity: ${allHumidity[4]}%`
+        dayFiveWind.textContent = `Wind: ${allWind[4]} mph`
     })
 
     
