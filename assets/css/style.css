@@ -165,47 +165,59 @@ header h1 {
 
 }
 
-#weatherBars {
+.weatherCards {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     padding: auto;
     justify-content: space-around;
+    visibility: hidden;
 }
 
 
 .fiveDayWeatherCardOne{
     border: 1px solid black;
-    width: 100px;
+    width: 150px;
     padding-left: 5px;
-    background-color: rgb(54, 54, 133)
+    background-color: rgb(54, 54, 133);
+    height: 175px
+   
 }
 
 .fiveDayWeatherCardTwo{
     border: 1px solid black;
-    width: 100px;
+    width: 150px;
     padding-left: 5px;
     background-color: rgb(54, 54, 133);
+    height: 175px
+    
 }
 
 .fiveDayWeatherCardThree{
     border: 1px solid black;
-    width: 100px;
+    width: 150px;
     padding-left: 5px;
     background-color: rgb(54, 54, 133);
+    height: 175px
+    
 }
 
 .fiveDayWeatherCardFour{
     border: 1px solid black;
-    width: 100px;
+    width: 150px;
     padding-left: 5px;
     background-color: rgb(54, 54, 133);
+    height: 175px
+   
 }
 
 .fiveDayWeatherCardFive{
     border: 1px solid black;
-    width: 100px;
+    width: 150px;
     padding-left: 5px;
     background-color: rgb(54, 54, 133);
+    height: 175px
+   
+    
 }
 
 #dayOneDate,

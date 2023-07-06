@@ -10,12 +10,12 @@ var currentWindEl = document.querySelector("#currentWind")
 //loads saved cities to page
 function onPageLoad() {
     var savedCities = JSON.parse(localStorage.getItem("recentSearches") || "[]");
-    console.log(savedCities);
+    // console.log(savedCities);
 
     let cityList = document.querySelector('.city-list')
 
     for (var i = 0; i < savedCities.length; i++) {
-    console.log("saved cities:", savedCities);
+    // console.log("saved cities:", savedCities);
 
        let cityListItem = document.createElement('li')
         var button = document.createElement('button')
@@ -30,7 +30,7 @@ function onPageLoad() {
 
    // eventListeners for recent search buttons
    var savedCityButtons = document.querySelectorAll('.buttons')
-   console.log(savedCityButtons);
+//    console.log(savedCityButtons);
 
    for (let i = 0; i < savedCityButtons.length; i++) {
        // add eventListener for each button
@@ -63,6 +63,8 @@ function onPageLoad() {
 
 //current weather function
 var getCurrentWeather = function (cityName) {
+
+    
 
     
     //current weather api
@@ -116,7 +118,6 @@ var getCurrentWeather = function (cityName) {
 
 // fiveDayForecast Function
 var getFiveDayForecast = function (cityName) {
-
     
     //5 day weather api
     var fiveDayWeather = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=607a87148837798f253f19dd664831b9&units=imperial`
@@ -124,13 +125,19 @@ var getFiveDayForecast = function (cityName) {
     //make request to URL
     fetch(fiveDayWeather).then(function(response){
         response.json().then(function(data){
-        // console.log(data.list);
+        
+        // change .weatherCards default css 'visibility: hidden' to 'visibility: visible'
+        var toggle = document.querySelector('.weatherCards')
+        toggle.style.visibility = 'visible' 
+
+        
         allTemps = []
         allHumidity = []
         allWind = []
         allDates = []
         //data.list has 40 weather forecast readings
         data.list.forEach(function(weatherReading) {
+        // console.log(data.list);
             //get weather reading for 12 noon each day
             if(weatherReading.dt_txt.slice(11,) === "12:00:00") {
                 console.log(weatherReading);
@@ -143,7 +150,13 @@ var getFiveDayForecast = function (cityName) {
                 var fiveDayWind = weatherReading.wind.speed
                 allWind.push(fiveDayWind)
                 var fiveDayDate = weatherReading.dt_txt.slice(0,10) 
-                allDates.push(fiveDayDate)
+                // Now reformat date from yyyy-mm-dd to mm-dd-yyyy
+                // The current date format is yyyy-mm-dd
+                // Use split() to divide this 'date' string on a certain character: ('-')
+                var reformatDate = fiveDayDate.split('-')
+                //partsOfDate now looks like this: partsOfDate = ['2023', '07', '05'] 
+                var finalDate = reformatDate[1] + '-' + reformatDate[2] + '-' + reformatDate[0] //this reorganizes items based on index of item. Now date format is mm/dd/yyyy
+                allDates.push(finalDate)
 
             }
             
@@ -233,6 +246,7 @@ var searchHandler = function(event) {
     if (cityName) {
         getCurrentWeather(cityName);
         getFiveDayForecast(cityName);
+        
 
         //set cityName into local storage
         setLocalStorage(cityName)
@@ -282,32 +296,40 @@ var setLocalStorage = function(city) {
     // loop over the cities in recent searches
     for (let i = 0; i < recentSearches.length; i++) {
         var cityListItem = document.createElement('li')
+        cityListItem.classList.add('city-list-item')
         var button = document.createElement('button')
         button.textContent = recentSearches[i]
         button.classList.add('buttons')
         button.id = Math.floor(Math.random() * 100)
         button.setAttribute('id', button.id)
         cityListItem.appendChild(button)
-        cityListItem.classList.add('city-list-item')
         cityList.appendChild(cityListItem)
 
     }
 
     // eventListeners for recent search buttons
     var savedCityButtons = document.querySelectorAll('.buttons')
-    console.log(savedCityButtons);
+    // console.log(savedCityButtons);
 
     for (let i = 0; i < savedCityButtons.length; i++) {
         // add eventListener for each button
         savedCityButtons[i].addEventListener('click', () => {
-            var savedCityName = savedCityButtons[i].textContent
+        var savedCityName = savedCityButtons[i].textContent
 
+            
+            
             getCurrentWeather(savedCityName);
             getFiveDayForecast(savedCityName);
-
+            
+           
             //set cityName into local storage
             setLocalStorage(savedCityName)
             searchInputEl.value = "";
+
+            
+
+            
+
 
             })
 
@@ -316,6 +338,19 @@ var setLocalStorage = function(city) {
     //sets item to local storage
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
 }
+
+
+
+// location.reload = function() {
+//     var toggle = document.querySelector('.weatherCards')
+//     toggle.style.visibility = 'visible'
+// }
+
+
+
+
+
+
 
 
 
