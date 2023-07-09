@@ -326,7 +326,6 @@ var setLocalStorage = function(city) {
             setLocalStorage(savedCityName)
             searchInputEl.value = "";
 
-
             })
 
         }
