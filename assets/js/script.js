@@ -341,10 +341,7 @@ var setLocalStorage = function(city) {
 
 
 
-// location.reload = function() {
-//     var toggle = document.querySelector('.weatherCards')
-//     toggle.style.visibility = 'visible'
-// }
+
 
 
 
