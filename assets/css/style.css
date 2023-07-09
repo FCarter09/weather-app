@@ -32,16 +32,6 @@ header h1 {
 }
 
 
-/* .border-after-current-weather {
-    border-bottom: 2px solid rgb(26, 26, 133);
-    margin-top: 50px;
-    margin-bottom: 10px;
-    width: 1000%;
-    display: inline-block;
-   
-    
-} */
-
 .border-after-current-weather {
     border-top: 2px solid darkblue;
 }
@@ -55,17 +45,6 @@ header h1 {
     width: 100%;
     margin-bottom: 20px;
 }
-
-/* .border-after-searchBar {
-    border-bottom: 2px solid rgb(26, 26, 133);
-    width: 325px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    border-left: 10px;
-    
-
-} */
-
 
 
 .city-list-item {
