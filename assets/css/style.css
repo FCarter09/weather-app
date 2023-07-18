@@ -518,26 +518,6 @@ footer h4 {
     }
   }
 
-  @media screen and (max-width: 394px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 230%
-    
-    }
-  }
-
-  @media screen and (max-width: 394px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 230%
-    
-    }
-  }
-
   @media screen and (max-width: 385px) {
     .buttons  {
 
@@ -558,15 +538,16 @@ footer h4 {
     }
   }
 
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 360px) {
     .buttons  {
 
-      font-size: 11px;
+      font-size: 9px;
       font-weight: bold;
       width: 200%
     
     }
   }
+
 
 
   @media screen and (max-width: 728px) {
