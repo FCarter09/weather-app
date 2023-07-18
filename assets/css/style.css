@@ -508,26 +508,57 @@ footer h4 {
     }
   }
 
+  @media screen and (max-width: 394px) {
+    .buttons  {
+
+      font-size: 11px;
+      font-weight: bold;
+      width: 225%
+    
+    }
+  }
+
+  @media screen and (max-width: 394px) {
+    .buttons  {
+
+      font-size: 11px;
+      font-weight: bold;
+      width: 230%
+    
+    }
+  }
+
+  @media screen and (max-width: 394px) {
+    .buttons  {
+
+      font-size: 11px;
+      font-weight: bold;
+      width: 230%
+    
+    }
+  }
+
+  @media screen and (max-width: 385px) {
+    .buttons  {
+
+      font-size: 11px;
+      font-weight: bold;
+      width: 235%
+    
+    }
+  }
+
   @media screen and (max-width: 728px) {
     .weatherCards {
      
         display: flex;
         flex-direction: column;
-        margin-left: 100px;
+        margin-left: 30px;
     
     
     }
   }
 
-  @media screen and (max-width: 635px) {
-    .weatherCards {
-     
-        display: flex;
-        flex-direction: column;
-    
-    
-    }
-  }
 
   @media screen and (max-width: 635px) {
     input::placeholder  {
@@ -569,6 +600,22 @@ footer h4 {
     .button  {
      
         width: 105%
+    
+    }
+  }
+
+  @media screen and (max-width: 394px) {
+    .button  {
+     
+        width: 105%
+    
+    }
+  }
+
+  @media screen and (max-width: 385px) {
+    .button  {
+     
+        width: 110%
     
     }
   }
