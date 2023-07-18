@@ -548,6 +548,18 @@ footer h4 {
     }
   }
 
+  @media screen and (max-width: 380px) {
+    .buttons  {
+
+      font-size: 11px;
+      font-weight: bold;
+      width: 240%
+    
+    }
+  }
+
+  
+
   @media screen and (max-width: 728px) {
     .weatherCards {
      
@@ -587,6 +599,28 @@ footer h4 {
     }
   }
 
+  @media screen and (max-width: 387px) {
+    input::placeholder  {
+     
+        font-size: 8px;
+        width: 120%
+    
+    
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    input::placeholder  {
+     
+        font-size: 8px;
+        width: 130%
+    
+    
+    }
+  }
+
+
+
   @media screen and (max-width: 415px) {
     .recent-searches  {
      
@@ -619,6 +653,16 @@ footer h4 {
     
     }
   }
+
+  @media screen and (max-width: 380px) {
+    .button  {
+     
+        width: 110%
+    
+    }
+  }
+
+
 
   
 
