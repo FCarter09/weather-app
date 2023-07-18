@@ -1,7 +1,7 @@
 
 var searchInputEl = document.querySelector(".input")
 var searchButtonEl = document.querySelector(".button")
-var cityNameEl = document.querySelector("#cityName")
+var cityNameEl = document.querySelector(".cityName")
 var currentTempEl = document.querySelector('#currentTemp')
 var currentHumidityEl = document.querySelector("#currentHumidity")
 var currentWindEl = document.querySelector("#currentWind")
@@ -139,11 +139,11 @@ var getFiveDayForecast = function (cityName) {
         data.list.forEach(function(weatherReading) {
         // console.log(data.list);
             //get weather reading for 12 noon each day
-            if(weatherReading.dt_txt.slice(11,) === "12:00:00") {
-                console.log(weatherReading);
+            if(weatherReading.dt_txt.slice(11,) === "18:00:00") {
+                console.log('weather reading', weatherReading);
                 
                 
-                var fiveDayTemp = weatherReading.main.temp
+                var fiveDayTemp = weatherReading.main.temp_max
                 allTemps.push(fiveDayTemp)
                 var fiveDayHumidity = weatherReading.main.humidity
                 allHumidity.push(fiveDayHumidity)
@@ -154,7 +154,7 @@ var getFiveDayForecast = function (cityName) {
                 // The current date format is yyyy-mm-dd
                 // Use split() to divide this 'date' string on a certain character: ('-')
                 var reformatDate = fiveDayDate.split('-')
-                //partsOfDate now looks like this: partsOfDate = ['2023', '07', '05'] 
+                //reformatDate now looks like this: partsOfDate = ['2023', '07', '05'] 
                 var finalDate = reformatDate[1] + '-' + reformatDate[2] + '-' + reformatDate[0] //this reorganizes items based on index of item. Now date format is mm/dd/yyyy
                 allDates.push(finalDate)
 
