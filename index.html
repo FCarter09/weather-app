@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <title>Weather</title>
+</head>
+
+    <header>
+
+    <h1>Weather Dashboard</h1>
+
+    </header>
+
+
+
+<body>
+
+    <!-- <div id="overallHolder"> -->
+
+      
+      <div class="overall-container">
+        <div class="search-container">
+            <h2 class="subtitle">Search for a city:</h2>
+            <form class="card-body" id="search-input" >
+                <input name="city-search" placeholder="Search"class="input" id="search-city" type="text" autofocus="true"> 
+            </form>
+            <form class="card-body" id="search-button">
+                <button class="button" type="click">Search</button>
+            </form>
+
+            <h2 class="recent-searches">Recent Searches</h2>
+            <ul class="city-list">
+                <!--List of cities will be created by javascript-->
+            </ul>
+
+        </div>
+
+
+        <!-- <div class="weather-data"> -->
+
+            <div class="weatherToday">
+                <!-- city weather data is added here -->
+                <h1 class="cityName"></h1>
+
+                <span class="temperature">Temp:</span> 
+                    <p id="currentTemp"></p> 
+                
+
+                <span class="humidity">Humidity:</span>
+                <p id="currentHumidity"></p>
+
+                <span class="wind">Wind:</span>
+                <p id="currentWind"></p>
+            </div>
+        </div>
+        
+        
+            <!-- <div class="weatherFiveDay"> -->
+
+            <div class="border-after-current-weather"></div>
+            <h2 class="fiveDayTitle">5-Day Forecast</h2>
+            
+
+                
+
+            <div class="weatherCards">
+                
+                
+
+                    <div class='fiveDayWeatherCardOne' id="dayOne">
+                        <p id="dayOneDate"></p>
+
+                        <p id="dayOneTemp"></p>
+
+                        <p id="dayOneHumidity"></p>
+
+                        <p id="dayOneWind"></p>
+                    </div> 
+                    
+                
+
+                
+                    <div class='fiveDayWeatherCardTwo' id="dayTwo">
+                        <p id="dayTwoDate"></p>
+
+                        <p id="dayTwoTemp"></p>
+
+                        <p id="dayTwoHumidity"></p>
+
+                        <p id="dayTwoWind"></p>
+                    </div> 
+                    
+                
+
+                
+                    <div class='fiveDayWeatherCardThree' id="dayThree">
+                        <p id="dayThreeDate"></p>
+
+                        <p id="dayThreeTemp"></p>
+
+                        <p id="dayThreeHumidity"></p>
+
+                        <p id="dayThreeWind"></p>
+                    </div> 
+                    
+                
+
+                
+                    <div class='fiveDayWeatherCardFour' id="dayFour">
+                        <p id="dayFourDate"></p>
+
+                        <p id="dayFourTemp"></p>
+
+                        <p id="dayFourHumidity"></p>
+
+                        <p id="dayFourWind"></p>
+                    </div> 
+                    
+                
+
+                
+                    <div class='fiveDayWeatherCardFive' id="dayFive">
+                        <p id="dayFiveDate"></p>
+
+                        <p id="dayFiveTemp"></p>
+
+                        <p id="dayFiveHumidity"></p>
+
+                        <p id="dayFiveWind"></p>
+                    </div>   
+                
+
+            </div>
+            <!-- </div> -->
+        <!-- </div> -->
+        
+
+<script src="./assets/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+</body>
+
+<footer>
+    <h4>Thanks for Visiting</h4>
+</footer>
+
+</html>
