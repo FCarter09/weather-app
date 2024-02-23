@@ -73,7 +73,7 @@ var getCurrentWeather = function (cityName) {
     //make request to URL
     fetch(currentWeather).then(function(response){
         response.json().then(function(data){
-        //console.log(data);
+        console.log(data);
 
         //call displayCity() in this function
         displayCity(data, cityName)
@@ -126,7 +126,10 @@ var getFiveDayForecast = function (cityName) {
     fetch(fiveDayWeather).then(function(response){
         response.json().then(function(data){
         
-        // change .weatherCards default css 'visibility: hidden' to 'visibility: visible'
+        // change .fiveDayTitle and .weatherCards default css 'visibility: hidden' to 'visibility: visible'
+        var fiveDayTitle = document.querySelector('.fiveDayTitle')
+        fiveDayTitle.style.visibility = 'visible'
+
         var toggle = document.querySelector('.weatherCards')
         toggle.style.visibility = 'visible' 
 
@@ -155,7 +158,8 @@ var getFiveDayForecast = function (cityName) {
                 // Use split() to divide this 'date' string on a certain character: ('-')
                 var reformatDate = fiveDayDate.split('-')
                 //reformatDate now looks like this: partsOfDate = ['2023', '07', '05'] 
-                var finalDate = reformatDate[1] + '-' + reformatDate[2] + '-' + reformatDate[0] //this reorganizes items based on index of item. Now date format is mm/dd/yyyy
+                //below is the reorganized date based on index. Now date format is mm/dd
+                var finalDate = reformatDate[1] + '/' + reformatDate[2]  
                 allDates.push(finalDate)
 
             }

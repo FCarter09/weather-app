@@ -4,16 +4,23 @@
 }
 
 body {
-    background-color: rgb(122, 180, 199);
+    /* background-color: rgb(122, 180, 199); */
     font-family: Arial, Helvetica, sans-serif;
 
 }
 
+
+/* header section */
+
 header {
-    background-color: rgb(32, 32, 158);
+    /* background-color: rgb(32, 32, 158); */
+    background-color: rgb(41, 41, 156);
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 25px;
-    width: 100%
+    left: 0;
+    right: 0;
+    
 }
 
 header h1 {
@@ -26,94 +33,106 @@ header h1 {
     
 }
 
-.recent-searches {
-    margin-bottom: 30px;
-    margin-right: 10px;
+
+
+/* search container and elements section */
+
+
+.overall-container{
+  
+  display: flex;
+  margin-bottom: 10px;
+
 }
 
-.fiveDayTitle {
-    margin-left: 25px;
+.search-container {
+ 
+  width: 25%;
+  
 }
 
-#overallHolder {
-    display: flex;
-    flex-direction: row;
+.subtitle {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  
 }
 
-
-.border-after-current-weather {
-    border-top: 2px solid darkblue;
-}
-
-
-.card {
-    width: 25%;
+.input {
+  height: 40px;
+  border-radius: 10px;
+  width: 25%;
 }
 
 .card-body .input {
-    width: 100%;
-    margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.recent-searches {
+  margin-bottom: 30px;
+  margin-right: 10px;
 }
 
 
 .city-list-item {
 
-    list-style-type: none;
-  
-}
+  list-style-type: none;
 
-.subtitle {
-    font-size: 30px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    
-}
-
-.input {
-    height: 40px;
-    border-radius: 10px;
-    width: 25%;
 }
 
 .button {
-    height: 35px;
-    width: 100%;
-    color: white;
-    font-size: 20px;
-    background-color: rgb(41, 41, 156);
-    border-radius: 10px;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 25px;
-    cursor: pointer
-    
+  height: 35px;
+  width: 100%;
+  color: white;
+  font-size: 20px;
+  background-color: rgb(41, 41, 156);
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 100px;
+  cursor: pointer
+  
 }
 
 .buttons {
-    height: 35px;
-    width: 100%;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
+  height: 35px;
+  width: 100%;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(41, 41, 156);
+  opacity: 0.9;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 25px;
+  position: relative;
+  left: -40px;
+  cursor: pointer
+  
+}
+
+
+/* current weather section */
+
+.weatherToday {
+    border: darkblue 1px solid;
+    height: 50%;
+    width: 75%;
+    margin-left: 15px;
     background-color: rgb(41, 41, 156);
-    opacity: 0.9;
-    border-radius: 10px;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 25px;
-    position: relative;
-    left: -40px;
-    cursor: pointer
-    
+
 }
 
 .cityName {
+  color: antiquewhite;
     position: relative;
     right: -20px;
 }
@@ -121,7 +140,7 @@ header h1 {
 .temperature,
 .humidity,
 .wind {
-    color: rgb(41, 41, 156);
+    color:antiquewhite;
     font-weight: bold;
     position: relative;
     right: -20px;
@@ -131,39 +150,34 @@ header h1 {
 #currentTemp,
 #currentHumidity,
 #currentWind {
+  color: antiquewhite;
     font-weight: bold;
     position: relative;
     right: -20px;
 }
 
-.weatherToday {
-    border: darkblue 1px solid;
-    margin-bottom: 30px; 
-    
+
+/* border at middle of page */
+.border-after-current-weather {
+  border-top: 2px solid darkblue;
+}
+
+/* title for five day weather section */
+.fiveDayTitle {
+  margin-left: 25px;
+  visibility: hidden;
 }
 
 
+/* five day weather section */
 
-.current-weather-data {
-    width: 75%;
-    padding-left: 10px;
-   
-}
-
-.weatherToday {
-    background-image: url("./images/Empty-Blue-Sky-as-Weather-Background-Photos-by-Canva.jpg");
-    background-repeat: none;
-    background-size: 100% 100%;
-    
-
-
-}
 
 .weatherCards {
-    display: flex;
-    padding: auto;
-    justify-content: space-around;
-    visibility: hidden;
+  display: flex;
+  width: 50%;
+  margin-left: 200px;
+  visibility: hidden;
+  
 }
 
 
@@ -171,8 +185,9 @@ header h1 {
     border: 1px solid black;
     width: 150px;
     padding-left: 5px;
-    background-color: rgb(41, 41, 156);
-    height: 175px
+    height: 215px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, white 0%, white 15%, rgb(41, 41, 156) 15%, rgb(41, 41, 156) 100%);
    
 }
 
@@ -180,8 +195,9 @@ header h1 {
     border: 1px solid black;
     width: 150px;
     padding-left: 5px;
-    background-color: rgb(41, 41, 156);
-    height: 175px
+    height: 215px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, white 0%, white 15%, rgb(41, 41, 156) 15%, rgb(41, 41, 156) 100%);
     
 }
 
@@ -189,8 +205,9 @@ header h1 {
     border: 1px solid black;
     width: 150px;
     padding-left: 5px;
-    background-color: rgb(41, 41, 156);
-    height: 175px
+    height: 215px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, white 0%, white 15%, rgb(41, 41, 156) 15%, rgb(41, 41, 156) 100%);
     
 }
 
@@ -198,8 +215,9 @@ header h1 {
     border: 1px solid black;
     width: 150px;
     padding-left: 5px;
-    background-color: rgb(41, 41, 156);
-    height: 175px
+    height: 215px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, white 0%, white 15%, rgb(41, 41, 156) 15%, rgb(41, 41, 156) 100%);
    
 }
 
@@ -207,8 +225,9 @@ header h1 {
     border: 1px solid black;
     width: 150px;
     padding-left: 5px;
-    background-color: rgb(41, 41, 156);
-    height: 175px
+    height: 215px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, white 0%, white 15%, rgb(41, 41, 156) 15%, rgb(41, 41, 156) 100%);
    
     
 }
@@ -219,8 +238,10 @@ header h1 {
 #dayFourDate,
 #dayFiveDate {
     font-size: 15px;
-    color:antiquewhite;
+    color: black;
     font-weight: bold;
+    text-align: center;
+    
 }
 
 #dayOneTemp,
@@ -250,10 +271,17 @@ header h1 {
     font-weight: bold;
 }
 
+
+/* footer section */
+
 footer {
-    background-color: rgb(32, 32, 158);
-    margin-top: 250px;
     
+    background-color: rgb(41, 41, 156);
+    width: 100%;
+    margin-top: 250px;
+    left: 0;
+    right: 0;
+       
 }
 
 footer h4 {
@@ -265,420 +293,324 @@ footer h4 {
     padding-bottom: 20px;
 }
 
-  /* <-------Media Queries-------> */
 
-@media screen and (max-width: 906px) {
-    .buttons  {
+
+/* <-------MEDIA QUERIES-------> */
+
+
+/* .subtitle and .recent-searchers queries */
+
+@media screen and (max-width: 566px) {
+
+  .subtitle {
+    font-size: 20px;
+    
+  }
+
+  .recent-searches {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 386px) {
+
+  .subtitle {
+    font-size: 17px;
+    
+  }
+
+  .recent-searches {
+    font-size: 20px;
+  }
+}
+
+
+
+
+
+/* .button and .buttons queries */
+
+@media screen and (max-width: 425px) {
+
+  .button {
+    font-size: 15px
+  }
+}
+
+@media screen and (max-width: 932px) {
+
+  .buttons {
+    font-size: 10px
+  }
+}
+
+@media screen and (max-width: 653px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 120% 
+   }
+}
+
+@media screen and (max-width: 587px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 130% 
+  }
+}
+
+@media screen and (max-width: 555px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 140% 
+  }
+}
+
+@media screen and (max-width: 529px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 150% 
+  }
+}
+
+@media screen and (max-width: 507px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 160% 
+  }
+}
+@media screen and (max-width: 486px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 170% 
+  }
+}
+
+@media screen and (max-width: 468px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 180% 
+  }
+}
+
+@media screen and (max-width: 453px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 190% 
+  }
+}
+
+@media screen and (max-width: 439px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 200% 
+  }
+}
+
+@media screen and (max-width: 426px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 210% 
+  }
+}
+
+@media screen and (max-width: 414px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 220% 
+  }
+}
+
+@media screen and (max-width: 404px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 230% 
+  }
+}
+
+@media screen and (max-width: 395px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 240% 
+  }
+}
+
+@media screen and (max-width: 386px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 250% 
+  }
+}
+
+@media screen and (max-width: 378px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 260% 
+  }
+}
+
+@media screen and (max-width: 370px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 270% 
+  }
+}
+
+@media screen and (max-width: 364px) {
+
+  .buttons {
+    font-size: 11px;
+    font-weight: bold;
+    width: 280% 
+  }
+}
+
+
+
+
+
+
+/* .weatherCards queries */
+
+@media screen and (max-width: 815px) {
+
+  .weatherCards {
+
+    width: 60%
+
+  }
+
+}
+
+@media screen and (max-width: 695px) {
+
+  .weatherCards {
+    margin-left: 50px;
+    width: 70%
+
+  }
+
+}
+
+@media screen and (max-width: 590px) {
+
+  .weatherCards {
+    margin-left: 50px;
+    width: 80%
+
+  }
+
+}
+
+@media screen and (max-width: 525px) {
+
+  .weatherCards {
+    margin-left: 40px;
+    width: 90%
+
+  }
+
+}
+
+@media screen and (max-width: 465px) {
+
+  .weatherCards {
+    margin-left: 0px;
+    width: 80%
+
+  }
+
+}
+
+
+
+
+/* header, footer, and mid-page border queries */
+
+@media screen and (max-width: 415px) {
+
+  header {
+    width: 105%
+
+  }
+
+  footer {
+    width: 105%;
+
+  }
+
+  .border-after-current-weather {
+    width: 105%
+  }
   
-      font-size: 15px;
-      font-weight: bold
 
-    
-    }
+}
+
+@media screen and (max-width: 395px) {
+
+  header {
+    width: 110%
+
   }
 
+  footer {
+    width: 110%;
 
-@media screen and (max-width: 866px) {
-    .buttons  {
-     
-      font-size: 15px; 
-      font-weight: bold
-    
-    }
   }
 
-  @media screen and (max-width: 768px) {
-    .buttons  {
-  
-      font-size: 12px;
-      font-weight: bold
+  .border-after-current-weather {
+    width: 110%
+  }
+}
 
-    
-    }
+@media screen and (max-width: 380px) {
+
+  header {
+    width: 115%
+
   }
 
-  @media screen and (max-width: 685px) {
-    .buttons  {
-  
-      font-size: 11px;
-      font-weight: bold;
-      width: 110%
-    
-    }
+  footer {
+    width: 115%;
+
   }
 
-  @media screen and (max-width: 630px) {
-    .buttons  {
-  
-      font-size: 12px;
-      font-weight: bold;
-      width: 120%
-    
-    }
+  .border-after-current-weather {
+    width: 115%
   }
+}
 
-  @media screen and (max-width: 600px) {
-    .buttons  {
-  
-      font-size: 12px;
-      font-weight: bold;
-      width: 130%
-    
-    }
-  }
-
-
-  @media screen and (max-width: 580px) {
-    .buttons  {
-  
-      font-size: 12px;
-      font-weight: bold;
-      width: 140%
-    
-    }
-  }
-
-  @media screen and (max-width: 560px) {
-    .buttons  {
-  
-      font-size: 12px;
-      font-weight: bold;
-      width: 140%
-    
-    }
-  }
-
-  @media screen and (max-width: 539px) {
-    .buttons  {
-
-      font-size: 12px;
-      font-weight: bold;
-      width: 150%
-    
-    }
-  }
-
-  @media screen and (max-width: 515px) {
-    .buttons  {
-  
-      font-size: 12px;
-      font-weight: bold;
-      width: 155%
-    
-    }
-  }
-
-  @media screen and (max-width: 504px) {
-    .buttons  {
-  
-      font-size: 12px;
-      font-weight: bold;
-      width: 160%
-    
-    }
-  }
-
-  @media screen and (max-width: 493px) {
-    .buttons  {
-  
-      font-size: 12px;
-      font-weight: bold;
-      width: 165%
-    
-    }
-  }
-
-  @media screen and (max-width: 483px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 165%;
-    
-    }
-  }
-
-  @media screen and (max-width: 467px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 170%;
-    
-    }
-  }
-
-  @media screen and (max-width: 458px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 175%;
-    
-    }
-  }
-
-  @media screen and (max-width: 450px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 180%;
-    
-    }
-  }
-
-  @media screen and (max-width: 443px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 185%;
-    
-    }
-  }
-
-  @media screen and (max-width: 435px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 190%;
-    
-    }
-  }
-
-  @media screen and (max-width: 429px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 195%;
-    
-    }
-  }
-
-  @media screen and (max-width: 422px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 200%;
-    
-    }
-  }
-
-  @media screen and (max-width: 416px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 205%;
-    
-    }
-  }
-
-  @media screen and (max-width: 410px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 210%;
-    
-    }
-  }
-
-  @media screen and (max-width: 404px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 215%;
-    
-    }
-  }
-
-  @media screen and (max-width: 399px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 220%
-    
-    }
-  }
-
-  @media screen and (max-width: 394px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 225%
-    
-    }
-  }
-
-  @media screen and (max-width: 385px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 235%
-    
-    }
-  }
-
-  @media screen and (max-width: 380px) {
-    .buttons  {
-
-      font-size: 11px;
-      font-weight: bold;
-      width: 240%
-    
-    }
-  }
-
-  @media screen and (max-width: 360px) {
-    .buttons  {
-
-      font-size: 9px;
-      font-weight: bold;
-      width: 200%
-    
-    }
-  }
-
-
-
-  @media screen and (max-width: 728px) {
-    .weatherCards {
-     
-        display: flex;
-        flex-direction: column;
-        margin-left: 30px;
-    
-    
-    }
-  }
-
-
-  @media screen and (max-width: 635px) {
-    input::placeholder  {
-     
-        font-size: 10px;
-    
-    
-    }
-  }
-
-  @media screen and (max-width: 612px) {
-    input::placeholder  {
-     
-        font-size: 10px;
-    
-    
-    }
-  }
-
-  @media screen and (max-width: 474px) {
-    input::placeholder  {
-     
-        font-size: 8px;
-    
-    
-    }
-  }
-
-  @media screen and (max-width: 387px) {
-    input::placeholder  {
-     
-        font-size: 8px;
-        width: 120%
-    
-    
-    }
-  }
-
-  @media screen and (max-width: 380px) {
-    input::placeholder  {
-     
-        font-size: 8px;
-        width: 130%
-    
-    
-    }
-  }
-
-  @media screen and (max-width: 360px) {
-    input::placeholder  {
-     
-        font-size: 7px;
-        width: 140%
-    
-    
-    }
-  }
-
-
-
-  @media screen and (max-width: 415px) {
-    .recent-searches  {
-     
-        font-size: 20px;
-    
-    
-    }
-  }
-
-  @media screen and (max-width: 360px) {
-    .subtitle  {
-     
-        font-size: 20px;
-    
-    
-    }
-  }
-
-  @media screen and (max-width: 410px) {
-    .button  {
-     
-        width: 105%
-    
-    }
-  }
-
-  @media screen and (max-width: 394px) {
-    .button  {
-     
-        width: 105%
-    
-    }
-  }
-
-  @media screen and (max-width: 385px) {
-    .button  {
-     
-        width: 110%
-    
-    }
-  }
-
-  @media screen and (max-width: 380px) {
-    .button  {
-     
-        width: 110%
-    
-    }
-  }
-
-  @media screen and (max-width: 360px) {
-    .button  {
-     
-        width: 110%;
-        font-size: 14px;
-    
-    }
-  }
 
 
 
